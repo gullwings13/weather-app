@@ -1,21 +1,6 @@
-# AJAX 
-The main focus of this lab will be using AJAX to pull JSON data from the openweather.com API.  
 
-## Ajax jQuery resource
-You all learned a whole lot today! good work! you're not expected to have all this suff memorized. Ff you want to refresh yourselves on the jQuery AJAX syntax go to the [documentation](http://api.jquery.com/jquery.ajax/)
 
-## 1. NPM 
-[NPM](https://www.npmjs.com/) is a highly used javascript package manager. It automates the task of installing packages. We've touched on it but it's important to dive in a little deeper as it's going to make our lives much easier. Watch [this video playlist](https://www.youtube.com/playlist?list=PLQso55XhxkgBMeiYmFEHzz1axDUBjTLC6) to get a sense of what it can do.
-
-## 2. Event Loop
-Understanding the event loop is really key to undertstanding javascript. It's deeper than we've gone so far but this is an amazing video that explains it really clearly.
-[event loop video](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-
-## 3. Postman
-[Postman](https://www.getpostman.com/) is a tool that allows you to access api's within a nice GUI. 
-It's a great way to test out API endpoints before you write your actual code. Go [here](https://www.getpostman.com/docs/) and follow the instructions to install the **native** app. Then read [this](https://www.getpostman.com/docs/requests) and [this](https://www.getpostman.com/docs/responses) to help you get started.
-
-# 4. Building a weather app!!
+# Building a weather app!!
 
 Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
@@ -62,8 +47,4 @@ Here are some zip codes to test!
 - 00902 (San Juan, Puerto Rico)
 - 46923 (Delphi, IN)
 - 94123 (San Francisco, CA)
-
-### Submit a link to your repo and a link to your deployed work on github pages in your issue ticket
-# Assignment due Wednesday(4/19) at 11:00PM
-
 
