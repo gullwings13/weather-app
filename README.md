@@ -8,7 +8,7 @@ Here's an exciting challenge: You'll be building a small weather app, using your
 
 #### Make sure you follow all of these steps!
 
-For this homework you'll be using the Open Weather Data API. In order to use it, please follow these steps:
+For this lab you'll be using the Open Weather Data API. In order to use it, please follow these steps:
 
 1. Sign up for a free [Open Weather Map](https://home.openweathermap.org/users/sign_up) account!
 2. Once you've signed up, you're given an [API key](https://home.openweathermap.org/api_keys). Copy that API key and keep track of it somewhere!
@@ -17,8 +17,8 @@ For this homework you'll be using the Open Weather Data API. In order to use it,
 ```
 http://api.openweathermap.org/data/2.5/weather?q=10025,us?units=imperial&appid=[PUT YOUR API KEY HERE]
 ```
-#### Your workflow should start with pseudocoding the app logic. 
-Although the homework submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place were going to check is your pseudocode.  
+#### Your workflow should start with pseudocoding the app logic.
+Although the lab submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place were going to check is your pseudocode.
 
 #### You need to make the following files to support the app:
 - main.js
