@@ -1,4 +1,4 @@
-var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
+const weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 
-var key = 'Your key here';
+const api_key = 'Your key here';
 
