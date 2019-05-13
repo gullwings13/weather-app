@@ -1,4 +1,4 @@
-#Google Maps API
+# Google Maps API
 
 For this session, we are going to play with the Google Maps API. You can either follow along, or put your headphones on and work through the [official documentation](https://developers.google.com/maps/documentation/javascript/reference) and this markdown on your own. 
 
@@ -16,7 +16,7 @@ First, let's check out a quick example of some cool stuff you can do with Google
 
 
 ---
-####Google Developers API Key
+#### Google Developers API Key
 
 You may want to [register](https://console.developers.google.com) for an API key with Google.
 
@@ -29,9 +29,9 @@ Go to [https://console.developers.google.com](https://console.developers.google.
 
 
 
-##Step 1: Create a Basic Google Map
+## Step 1: Create a Basic Google Map
 
-######A - Load the Google API
+###### A - Load the Google API
 
 Google Maps is a JavaScript library; it can be loaded using the script tags.
 	
@@ -47,7 +47,7 @@ or with API key
 
 ```
 
-######B - Set Map Properties
+###### B - Set Map Properties
 
 Create a function to initialize the map:
 
@@ -68,7 +68,7 @@ var mapProperties = {
 
 ```
 
-######C - Create a Map Container
+###### C - Create a Map Container
 
 Create a 'div' element to hold the map.
 
@@ -91,7 +91,7 @@ The code above creates a new map inside the < div > element with id="googleMap",
 
 
 
-######E - Add an Event Listener to Load the Map
+###### E - Add an Event Listener to Load the Map
 
 Add a DOM listener that will execute the initialize() function on window load (when the page is loaded):
 
@@ -100,7 +100,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
 
 ```
 
-##Step 2: Overlays
+## Step 2: Overlays
 
 <br/>
 
@@ -173,7 +173,7 @@ var flightPath = new google.maps.Polygon({
 
 ```
 
-##Step 3: Map Events
+## Step 3: Map Events
 <br/>
 Click The Marker to Zoom
 
@@ -220,7 +220,7 @@ function placeMarker(location) {
   infowindow.open(map,marker);
 }
 ```
-##Step 4: Map Controls
+## Step 4: Map Controls
 
 There are many controls (see documentation), but here are a few to get you started. 
 
@@ -232,9 +232,7 @@ There are many controls (see documentation), but here are a few to get you start
 * Rotate - Displays a small circular icon that allows you to rotate maps.
 * Overview Map - Displays a thumbnail overview map reflecting the current map viewport within a wider area.
 
-##Step 5: Map Types
-
-
+## Step 5: Map Types
 
 * ROADMAP (normal, default 2D map)
 * SATELLITE (photographic map)
