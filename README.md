@@ -1,6 +1,6 @@
 
 
-# Building a weather app!!
+# Build a Weather App
 
 Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
