@@ -209,7 +209,7 @@ For example, if you receive a 404, it means that your request was not found.
 
 </details>
 
-## OpenWeatherApp Exercise
+## OpenWeatherApp API Exercise
 
 #### Your workflow should start with pseudocoding the app logic.
 Although the lab submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place were going to check is your pseudocode.
