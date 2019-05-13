@@ -7,6 +7,8 @@ Here's an exciting challenge: You'll be building a small weather app, using your
 ***
 
 ## Reading Documentation
+<details>
+<summary>Click here for additional information about API keys, working with Chrome Inspector and the Network Tab, HTTP requests.</summary>
 
 Now that we have some experience working with APIs, we're going to take a step back and learn how to fully understand an API's documentation.
 
@@ -204,6 +206,8 @@ You can also use it to look at the status code to make sure that it is 200, whic
 Any other status code will help you identify what the error might be.
 
 For example, if you receive a 404, it means that your request was not found.
+
+</details>
 
 ## OpenWeatherApp Exercise
 
