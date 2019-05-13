@@ -252,7 +252,6 @@ Here are some zip codes / city names to test!
 	- [APIs and HTTP Requests](https://generalassembly.wistia.com/medias/ycu49i7gby)
 
 - Readings
-	- [jQuery AJAX Documentation](http://api.jquery.com/jquery.ajax/)
 	- [Cross Domain Requests in JS](https://jvaneyck.wordpress.com/2014/01/07/cross-domain-requests-in-javascript/)
 	- [What is Cross Origin Resource Sharing (CORS)?](https://www.maxcdn.com/one/visual-glossary/cors/)
 	- [Google Maps API Lesson](assets/google_maps.md)
