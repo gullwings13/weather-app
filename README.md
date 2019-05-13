@@ -211,26 +211,26 @@ For example, if you receive a 404, it means that your request was not found.
 
 ## OpenWeatherApp API Exercise
 
-#### Your workflow should start with pseudocoding the app logic.
+#### ⚡️ Your workflow should start with pseudocoding the app logic.
 Although the lab submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place were going to check is your pseudocode.
 
-#### You need to make the following files to support the app:
-- main.js
-- index.html
-- style.css
+#### ⚡️ You need to make the following files to support the app:
+- [ ] `main.js`
+- [ ] `index.html`
+- [ ] `style.css`
 
-### Your page should have:
-- An input field for a user to enter a zip code or city name
-- A submit button
-- When the submit button is clicked:
-    - A GET request should fetch the weather data from the API
-    - The following data should be rendered to the page:
-        - City name
-        - Current temperature
-        - Weather description
-        - Min temp
-        - Max temp
-- Have the temperature turn blue if under 40, and red if above 90.
+### ⚡️ Your page should have:
+- [ ] An **input field** for a user to enter a zip code or city name
+- [ ] A **submit button**
+- [ ] When the submit button is clicked:
+    - [ ] A **GET** request should fetch the weather data from the API
+    - [ ] The following data should be rendered to the page:
+        - [ ] City name
+        - [ ] Current temperature
+        - [ ] Weather description
+        - [ ] Min temp
+        - [ ] Max temp
+- [ ] Have the temperature turn blue if under 40, and red if above 90.
 
 Here are some zip codes / city names to test!
 
