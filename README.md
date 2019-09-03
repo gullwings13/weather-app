@@ -1,6 +1,9 @@
 
 
-# Build a Weather App
+## 🏝️ Build a Weather App using the OpenWeatherMap API
+
+
+Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
 Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
@@ -210,16 +213,8 @@ For example, if you receive a 404, it means that your request was not found.
 </details>
 
 
+# Instructions
 
-## 🏝️ Build a Weather App using the OpenWeatherMap API
-
-
-Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
-
-### Instructions
-
-#### 🏝️ Your workflow should start with pseudocoding the app logic.
-If you find the assignment too challenging to complete, you can bet the first place to check is your pseudocode!
 
 #### For this assignment you'll be using the Open Weather Data API. In order to use it, please follow these steps:
 
@@ -232,7 +227,7 @@ http://api.openweathermap.org/data/2.5/weather?q=10025,us?units=imperial&appid=[
 ```
 
 #### Your workflow should start with pseudocoding the app logic.
-Although the lab submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place were going to check is your pseudocode.
+Although the homework submission completion status will be based on the code alone, if your code isn't up to par OR or you found the assignment too challenging to complete you can bet the first place we're going to check is your pseudocode.
 
 #### You need to make the following files to support the app:
 - main.js
@@ -274,13 +269,13 @@ Following this format:
 
 ```js
 'http://api.openweathermap.org/data/2.5/weather?q=City&units=imperial&appid=yourAppKey'
-```
 
 var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 
 
 // Get an api key: http://openweathermap.org/appid#get
 var key = 'Your key here';
+```
 
 
 
