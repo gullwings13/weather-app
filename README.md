@@ -211,15 +211,15 @@ For example, if you receive a 404, it means that your request was not found.
 
 ## OpenWeatherApp API Exercise
 
-#### ⚡️ Your workflow should start with pseudocoding the app logic.
+#### 🏝️ Your workflow should start with pseudocoding the app logic.
 If you find the assignment too challenging to complete, you can bet the first place to check is your pseudocode!
 
-#### ⚡️ You need to make the following files to support the app:
+#### 🏝️ You need to make the following files to support the app:
 - [ ] `main.js`
 - [ ] `index.html`
 - [ ] `style.css`
 
-### ⚡️ Your page should have:
+### 🏝️ Your page should have:
 - [ ] An **input field** for a user to enter a zip code or city name
 - [ ] A **submit button**
 - [ ] When the submit button is clicked:
