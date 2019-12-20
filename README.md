@@ -1,21 +1,17 @@
+## 🌨 Build a Weather App using the OpenWeatherMap API
 
-
-## 🏝️ Build a Weather App using the OpenWeatherMap API
-
-
-Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
 Here's an exciting challenge: You'll be building a small weather app, using your newfound skills with APIs!
 
 ***
 
-## Reading Documentation
+# Reading Documentation
 <details>
 <summary>Click here for additional information about API keys, working with Chrome Inspector and the Network Tab, HTTP requests.</summary>
 
 Now that we have some experience working with APIs, we're going to take a step back and learn how to fully understand an API's documentation.
 
-There are no rules governing how to write documentation for an API, so its content is presented differently each time.
+There is no written standard on how to write API documentation, and you will find vastly different presentations in content everywhere. Some documentation will make things 100% clear, others may not.
 
 While searching for the right API, you'll want to explore the different options that are available to you, and then take a look at each option's documentation.
 
