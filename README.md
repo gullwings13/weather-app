@@ -241,7 +241,6 @@ Although the homework submission completion status will be based on the code alo
         - Weather description
         - Min temp
         - Max temp
-- Have the temperature turn blue if under 40, and red if above 90.
 
 Here are some zip codes / city names to test!
 
@@ -272,6 +271,15 @@ var weatherUrl = "http://api.openweathermap.org/data/2.5/weather?q=";
 // Get an api key: http://openweathermap.org/appid#get
 var key = 'Your key here';
 ```
+
+## Bonus
+- Add additional info. Include the sunrise and sunset times and some information about humidity, atmospheric pressure, etc.
+
+## CSS Bonus
+- Code your min and max temperatures to turn blue if they are under 40, and red if they are above 90.
+
+## Winter Break Blizzard Bonus
+- Research local storage. Use local storage to allow a user to save their city/zipcode info in the browser.
 
 
 
