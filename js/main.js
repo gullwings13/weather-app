@@ -11,6 +11,7 @@ const inputButtonClick = event =>
     event.preventDefault()
     let query = cityWeatherInput.value
     cityWeatherInput.value = ''
+    cityWeatherResults.innerHTML = ''
     collectResults(query)
 }
 
@@ -28,8 +29,6 @@ const collectResults = async query =>
 
 const renderResults = results =>
 {
-    // console.log("Hello from function")
-    // console.log(results.data.name)
 
     // City Name
     let cityName = document.createElement('h1')
@@ -48,7 +47,7 @@ const renderResults = results =>
 
     // Weather description
     let weatherDescription = document.createElement('h2')
-    console.log(results.data.weather[0].description)
+    // console.log(results.data.weather[0].description)
     weatherDescription.innerHTML = `${results.data.weather[0].description}`
     cityWeatherResults.append(weatherDescription)
 
@@ -59,12 +58,46 @@ const renderResults = results =>
 
     // Max temp
     let maxTemp = document.createElement('h2')
-    maxTemp.innerHTML = results.data.main.temp_max
-    cityWeatherResults.append(`Maximum Temp:${maxTemp}`)
+    maxTemp.innerHTML = `Maximum Temp:${results.data.main.temp_max}`
+    cityWeatherResults.append(maxTemp)
 
-    // let x = document.createElement('h2')
-    // x.innerHTML = results.data.x
-    // cityWeatherResults.append(x)
+    let weatherImage = document.createElement('img')
+    weatherImage.src = `http://openweathermap.org/img/w/${results.data.weather[0].icon}.png`
+    cityWeatherResults.append(weatherImage)
+
+    let sunrise = document.createElement('h2')
+    // string date formatting from stack overflow
+    // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
+    let time = Date(results.data.sys.sunrise)
+    let timeString = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    sunrise.innerHTML = `Sunrise:${timeString}`
+    cityWeatherResults.append(sunrise)
+
+    let sunset = document.createElement('h2')
+    // string date formatting from stack overflow
+    // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
+    let sunsetTime = Date(results.data.sys.sunset)
+    let sunsetTimeString = sunsetTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
+    sunset.innerHTML = `Sunset:${sunsetTimeString}`
+    cityWeatherResults.append(sunset)
+
+    let humidity = document.createElement('h2')
+    humidity.innerHTML = `Humidity:${results.data.main.humidity}`
+    cityWeatherResults.append(humidity)
+
+    let pressure = document.createElement('h2')
+    pressure.innerHTML = `Pressure:${results.data.main.pressure}`
+    cityWeatherResults.append(pressure)
+
+    // Bonus
+    // Add additional info.Include the sunrise and sunset times and some information about humidity, atmospheric pressure, etc.
+
+    // CSS Bonus
+    // Code your min and max temperatures to turn blue if they are under 40, and red if they are above 90.
+
+    // Winter Break Blizzard Bonus
+    // Research local storage.Use local storage to allow a user to save their city / zipcode info in the browser.
+
 
 }
 
