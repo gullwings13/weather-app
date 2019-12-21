@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Weather Application | OpenWeatherMap API</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <form>
-  	<input type="text" name="city" value="" placeholder="city" id="city">
-  	<input type="submit" value="Get Weather" id="getTemp">
+    <input type="text" name="city" value="" placeholder="city" id="city">
+    <input type="submit" value="Get Weather" id="getTemp">
   </form>
 
-  <!-- Add your code in here -->
-
+  <div id="results"></div>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/main.js" type="text/javascript" charset="utf-8" async defer></script>
 
 </body>
+
 </html>
