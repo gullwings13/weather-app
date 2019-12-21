@@ -48,8 +48,8 @@ const renderResults = results =>
 
     // Weather description
     let weatherDescription = document.createElement('h2')
-    console.log(results.data.weather.description)
-    weatherDescription.innerHTML = `${results.data.weather.description}`
+    console.log(results.data.weather[0].description)
+    weatherDescription.innerHTML = `${results.data.weather[0].description}`
     cityWeatherResults.append(weatherDescription)
 
     // Min temp
