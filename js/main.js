@@ -5,15 +5,29 @@ const units = '&units=imperial'
 const cityWeatherInput = document.querySelector('#city')
 const cityWeatherInputButton = document.querySelector('#getTemp')
 const cityWeatherResults = document.querySelector('#results')
+let defaultCityForSave = ""
 
 const inputButtonClick = event =>
 {
     event.preventDefault()
     let query = cityWeatherInput.value
+    defaultCityForSave = query
+    fetchWeather(query)
+}
+
+const fetchWeather = (query) =>
+{
     cityWeatherInput.value = ''
     cityWeatherResults.innerHTML = ''
     collectResults(query)
 }
+
+const saveLocationButtonClick = event =>
+{
+    event.preventDefault()
+    localStorage.setItem('weatherAppDefaultCity', defaultCityForSave);
+}
+
 
 const collectResults = async query =>
 {
@@ -43,6 +57,7 @@ const renderResults = results =>
     // Current temperature
     let currentTemp = document.createElement('h2')
     currentTemp.innerHTML = `Current Temp:${results.data.main.temp}`
+
     cityWeatherResults.append(currentTemp)
 
     // Weather description
@@ -53,12 +68,20 @@ const renderResults = results =>
 
     // Min temp
     let minTemp = document.createElement('h2')
-    minTemp.innerHTML = `Minimum Temp:${results.data.main.temp_min}`
+    let minTempColorSpan = document.createElement('span')
+    minTemp.innerHTML = `Minimum Temp:`
+    minTempColorSpan.innerHTML = results.data.main.temp_min
+    addTextColorClass(minTempColorSpan)
+    minTemp.append(minTempColorSpan)
     cityWeatherResults.append(minTemp)
 
     // Max temp
     let maxTemp = document.createElement('h2')
-    maxTemp.innerHTML = `Maximum Temp:${results.data.main.temp_max}`
+    let maxTempColorSpan = document.createElement('span')
+    maxTemp.innerHTML = `Maximum Temp:`
+    maxTempColorSpan.innerHTML = results.data.main.temp_max
+    addTextColorClass(maxTempColorSpan)
+    maxTemp.append(maxTempColorSpan)
     cityWeatherResults.append(maxTemp)
 
     let weatherImage = document.createElement('img')
@@ -89,6 +112,11 @@ const renderResults = results =>
     pressure.innerHTML = `Pressure:${results.data.main.pressure}`
     cityWeatherResults.append(pressure)
 
+    let saveButton = document.createElement('button')
+    saveButton.innerHTML = "Save this location as your default"
+    saveButton.addEventListener('click', saveLocationButtonClick)
+    cityWeatherResults.append(saveButton)
+
     // Bonus
     // Add additional info.Include the sunrise and sunset times and some information about humidity, atmospheric pressure, etc.
 
@@ -101,7 +129,30 @@ const renderResults = results =>
 
 }
 
+function addTextColorClass(htmlElement)
+{
+    htmlElement.classList.add('textBackground')
+
+    if(parseInt(htmlElement.innerHTML) < 0)
+    {
+        htmlElement.style.backgroundPosition = "0%"
+    }
+    else if (parseInt(htmlElement.innerHTML) > 100)
+    {
+        htmlElement.style.backgroundPosition = "100%"
+    }
+    else
+    {
+        htmlElement.style.backgroundPosition = parseInt(htmlElement.innerHTML) + "%"
+    }
+
+}
+
 cityWeatherInputButton.addEventListener('click', inputButtonClick)
 
+if(localStorage.getItem('weatherAppDefaultCity') != null)
+{
+    fetchWeather(localStorage.getItem('weatherAppDefaultCity'))
+}
 
 
