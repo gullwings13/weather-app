@@ -25,15 +25,20 @@ const fetchWeather = (query) =>
 const saveLocationButtonClick = event =>
 {
     event.preventDefault()
-    localStorage.setItem('weatherAppDefaultCity', defaultCityForSave);
-    updateSaveButton()
+    if(localStorage.getItem('weatherAppDefaultCity') != defaultCityForSave)
+    {
+        localStorage.setItem('weatherAppDefaultCity', defaultCityForSave);
+        updateSaveButton()
+    }
+
 }
 
-function clearSavedLocationButtonClick() {
+const clearSavedLocationButtonClick = event => {
+    event.preventDefault()
     localStorage.removeItem('weatherAppDefaultCity')
     let saveButton = document.querySelector('.save-button')
     saveButton.innerHTML = "Save this location as your default"
-    this.remove()
+    event.target.remove()
 }
 
 const updateSaveButton = () =>
