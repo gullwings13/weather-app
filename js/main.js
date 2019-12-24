@@ -26,8 +26,26 @@ const saveLocationButtonClick = event =>
 {
     event.preventDefault()
     localStorage.setItem('weatherAppDefaultCity', defaultCityForSave);
+    updateSaveButton()
 }
 
+function clearSavedLocationButtonClick() {
+    localStorage.removeItem('weatherAppDefaultCity')
+    let saveButton = document.querySelector('.save-button')
+    saveButton.innerHTML = "Save this location as your default"
+    this.remove()
+}
+
+const updateSaveButton = () =>
+{
+    let saveButton = document.querySelector('.save-button')
+    saveButton.innerHTML = 'This location is saved as your default location!'
+
+    let clearButton = document.createElement('button')
+    clearButton.innerHTML = "Clear saved location"
+    clearButton.addEventListener('click', clearSavedLocationButtonClick)
+    saveButton.parentElement.append(clearButton)
+}
 
 const collectResults = async query =>
 {
@@ -114,8 +132,17 @@ const renderResults = results =>
 
     let saveButton = document.createElement('button')
     saveButton.innerHTML = "Save this location as your default"
+    saveButton.classList.add('save-button')
     saveButton.addEventListener('click', saveLocationButtonClick)
     cityWeatherResults.append(saveButton)
+
+    if(localStorage.getItem('weatherAppDefaultCity') == defaultCityForSave)
+    {
+        updateSaveButton()
+
+    }
+
+
 
     // Bonus
     // Add additional info.Include the sunrise and sunset times and some information about humidity, atmospheric pressure, etc.
@@ -152,6 +179,7 @@ cityWeatherInputButton.addEventListener('click', inputButtonClick)
 
 if(localStorage.getItem('weatherAppDefaultCity') != null)
 {
+    defaultCityForSave = localStorage.getItem('weatherAppDefaultCity')
     fetchWeather(localStorage.getItem('weatherAppDefaultCity'))
 }
 
