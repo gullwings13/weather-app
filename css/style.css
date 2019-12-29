@@ -1,5 +1,62 @@
+:root {
+	/*--color-1: rgba(191, 47, 86, 1);*/
+	/*--color-2: rgba(33, 58, 63, 1);*/
+	/*--color-3: rgba(198, 216, 60, 1);*/
+	/*--color-4: rgba(216, 135, 88, 1);*/
+	/*--color-5: rgba(191, 173, 162, 1);*/
+
+	/*--color-1: rgba(111, 191, 183, 1);*/
+	/*--color-2: rgba(242, 198, 65, 1);*/
+	/*--color-3: rgba(242, 149, 68, 1);*/
+	/*--color-4: rgba(242, 102, 102, 1);*/
+	/*--color-5: rgba(242, 242, 242, 1);*/
+
+	--color-1: rgba(242, 242, 242, 1);
+	--color-2: rgba(84, 109, 114, 1);
+	--color-3: rgba(137, 160, 165, 1);
+	--color-4: rgba(164, 188, 191, 1);
+	--color-5: rgba(2, 114, 114, 1);
+
+	--color-6: rgba(0,0,0,1);
+	--color-7: rgba(255,255,255,1);
+
+}
+
+/* https://css-tricks.com/accessible-simple-responsive-tables/ */
+/* responsive tables from css tricks */
+
+.Rtable {
+	display: flex;
+	flex-wrap: wrap;
+	margin: 0 0 3em 0;
+	padding: 0;
+}
+
+.Rtable-cell {
+	box-sizing: border-box;
+	flex-grow: 1;
+	width: 100%;
+	padding: 0.8em 1.2em;
+	overflow: hidden;
+	list-style: none;
+	border: solid 3px white;
+	background: rgba(112, 128, 144, 0.2);
+}
+
+.Rtable-cell--head {
+	background-color: slategrey;
+	border-color: #5a6673;
+	color: white;
+}
+
+.Rtable-cell--foot {
+	background-color: #b8c0c8;
+	border-color: #a9b3bc;
+}
+
+
 body {
-	background: #213A40;
+	background: var(--color-1);
 }
 
 main {
@@ -7,7 +64,7 @@ main {
 	flex-wrap: wrap;
 	flex-direction: column;
 	font-family: Arial, Helvetica, sans-serif;
-	color: #BF3056;
+	color: var(--color-3);
 
 }
 
@@ -49,31 +106,40 @@ form{
 	font-size: 15px;
 }
 
-#city{
-	width: 45vw;
-	padding: 0;
-	height: 40px;
-	font-size: 25px;
-	background: rgba(45, 45, 45, 0.97);
-	color: #C7D93D;
-	border-radius: 5px;
-	border-color: #C7D93D;
-}
+/*#city{*/
+/*	width: 45vw;*/
+/*	padding: 0;*/
+/*	height: 40px;*/
+/*	font-size: 25px;*/
+/*	background: var(--color-3);*/
+/*	color: var(--color-1);*/
+/*	border-radius: 5px;*/
+/*	border-color: var(--color-4);*/
+/*}*/
 
 #city:focus {
-	outline: #C7D93D auto 7px;
+	outline: var(--color-5) auto 7px;
 }
 
 
-#getTemp, button{
-	width: 45vw;
-	padding: 0px;
-	height: 40px;
-	font-size: 25px;
-	background: #2d454b;
-	color: #C7D93D;
-	border-radius: 5px;
-	border-color: #C7D93D;
+#getTemp, #city, button{
+
+
+	display: inline-block;
+	padding: 10px 15px;
+	font-size: 20px;
+	border-radius: 0;
+	-webkit-appearance: none;
+	border: 1px solid transparent;
+
+	/*width: 45vw;*/
+	/*padding: 0px;*/
+	/*height: 40px;*/
+	/*font-size: 25px;*/
+	background: var(--color-3);
+	color: var(--color-5);
+	/*border-radius: 5px;*/
+	/*border-color: var(--color-4);*/
 }
 
 button{

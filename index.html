@@ -4,6 +4,7 @@
 <head>
   <title>Weather Application | OpenWeatherMap API</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -11,10 +12,16 @@
 
   <main>
     <form>
-      <input type="text" name="city" value="" placeholder="city" id="city" autofocus>
+      <input type="text" name="city" value="" placeholder=" city or zip code" id="city" autofocus>
       <input type="submit" value="Get Weather" id="getTemp">
     </form>
+    <div class="Rtable">
+      <div class="Rtable-cell Rtable-cell--head"><h1>New York</h1></div>
+      <div class="Rtable-cell"><div class="label">Current Temp:</div><div class="data">55</div><div class="unit">°F</div></div>
 
+      <div class="Rtable-cell Rtable-cell--foot"><strong>Lord of Winterfell</strong></div>
+
+    </div>
     <div id="results">
 
     </div>

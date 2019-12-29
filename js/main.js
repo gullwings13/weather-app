@@ -64,6 +64,10 @@ const collectResults = async query =>
     }
 }
 
+
+
+
+
 const renderResults = results =>
 {
 
@@ -159,21 +163,15 @@ const renderResults = results =>
     if(localStorage.getItem('weatherAppDefaultCity') == defaultCityForSave)
     {
         updateSaveButton()
-
     }
+}
+
+function makeTableRow(label, data, unit)
+{
 
 
 
-    // Bonus
-    // Add additional info.Include the sunrise and sunset times and some information about humidity, atmospheric pressure, etc.
-
-    // CSS Bonus
-    // Code your min and max temperatures to turn blue if they are under 40, and red if they are above 90.
-
-    // Winter Break Blizzard Bonus
-    // Research local storage.Use local storage to allow a user to save their city / zipcode info in the browser.
-
-
+    return rowElement
 }
 
 function addTextColorClass(htmlElement)
