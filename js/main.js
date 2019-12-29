@@ -68,71 +68,86 @@ const renderResults = results =>
 {
 
     // City Name
-    let cityName = document.createElement('h1')
-    cityName.innerHTML = results.data.name
-    cityWeatherResults.append(cityName)
-
-    // Country code
-    let countryCode = document.createElement('h2')
-    countryCode.innerHTML = results.data.sys.country
-    cityWeatherResults.append(countryCode)
+    let cityNameMain = document.createElement('h1')
+    let cityNameSub = document.createElement('span')
+    cityNameMain.innerHTML = results.data.name+" "
+    cityNameSub.innerHTML = " "+results.data.sys.country
+    cityNameMain.classList.add('main-display-item')
+    cityNameSub.classList.add('sub-display-item')
+    cityNameMain.append(cityNameSub)
+    cityWeatherResults.append(cityNameMain)
 
     // Current temperature
-    let currentTemp = document.createElement('h2')
-    currentTemp.innerHTML = `Current Temp:${results.data.main.temp}`
+    let currentTemp = document.createElement('h1')
+    currentTemp.innerHTML = `Temp now:${ Math.round(results.data.main.temp)}`
+    currentTemp.classList.add('main-display-item')
 
     cityWeatherResults.append(currentTemp)
 
-    // Weather description
-    let weatherDescription = document.createElement('h2')
-    // console.log(results.data.weather[0].description)
-    weatherDescription.innerHTML = `${results.data.weather[0].description}`
-    cityWeatherResults.append(weatherDescription)
+
 
     // Min temp
-    let minTemp = document.createElement('h2')
+    let minTemp = document.createElement('h1')
     let minTempColorSpan = document.createElement('span')
-    minTemp.innerHTML = `Minimum Temp:`
-    minTempColorSpan.innerHTML = results.data.main.temp_min
+    minTemp.innerHTML = `Temp min:`
+    minTempColorSpan.innerHTML = Math.round(results.data.main.temp_min)
+    minTemp.classList.add('main-display-item')
     addTextColorClass(minTempColorSpan)
     minTemp.append(minTempColorSpan)
     cityWeatherResults.append(minTemp)
 
     // Max temp
-    let maxTemp = document.createElement('h2')
+    let maxTemp = document.createElement('h1')
     let maxTempColorSpan = document.createElement('span')
-    maxTemp.innerHTML = `Maximum Temp:`
-    maxTempColorSpan.innerHTML = results.data.main.temp_max
+    maxTemp.innerHTML = `Temp max:`
+    maxTempColorSpan.innerHTML =  Math.round(results.data.main.temp_max)
+    maxTemp.classList.add('main-display-item')
     addTextColorClass(maxTempColorSpan)
+
     maxTemp.append(maxTempColorSpan)
     cityWeatherResults.append(maxTemp)
 
-    let weatherImage = document.createElement('img')
-    weatherImage.src = `http://openweathermap.org/img/w/${results.data.weather[0].icon}.png`
-    cityWeatherResults.append(weatherImage)
+    // Weather description
+    let weatherDescription = document.createElement('h1')
+    weatherDescription.innerHTML = `${results.data.weather[0].description}`
+    weatherDescription.classList.add('main-display-item')
+    cityWeatherResults.append(weatherDescription)
 
-    let sunrise = document.createElement('h2')
-    // string date formatting from stack overflow
+    let imageBackground = document.createElement('div')
+    imageBackground.classList.add('result-background')
+    imageBackground.style.backgroundImage = `url(http://openweathermap.org/img/w/${results.data.weather[0].icon}.png)`
+    //weatherImage.src = `http://openweathermap.org/img/w/${results.data.weather[0].icon}.png`
+    cityWeatherResults.append(imageBackground)
+
+    let sunrise = document.createElement('h3')
+    // several string date formatting from stack overflow
     // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
-    let time = Date(results.data.sys.sunrise)
-    let timeString = time.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    sunrise.innerHTML = `Sunrise:${timeString}`
+    // https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
+    let time = new Date(results.data.sys.sunrise*1000)
+    let options = { timeZone: "America/New_York", timeZoneName: 'short' } // used for sunrise and sunset
+    let timeString = time.toLocaleTimeString('en-US', options)
+    sunrise.innerHTML = `Sunrise: ${timeString}`
+    sunrise.classList.add('main-display-item')
     cityWeatherResults.append(sunrise)
 
-    let sunset = document.createElement('h2')
+    let sunset = document.createElement('h3')
     // string date formatting from stack overflow
     // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
-    let sunsetTime = Date(results.data.sys.sunset)
-    let sunsetTimeString = sunsetTime.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true })
-    sunset.innerHTML = `Sunset:${sunsetTimeString}`
+
+    let sunsetTime = new Date(results.data.sys.sunset*1000)
+    let sunsetTimeString = sunsetTime.toLocaleTimeString('en-US', options)
+    sunset.innerHTML = `Sunset: ${sunsetTimeString}`
+    sunset.classList.add('main-display-item')
     cityWeatherResults.append(sunset)
 
-    let humidity = document.createElement('h2')
-    humidity.innerHTML = `Humidity:${results.data.main.humidity}`
+    let humidity = document.createElement('h3')
+    humidity.innerHTML = `Humidity: ${results.data.main.humidity}`
+    humidity.classList.add('main-display-item')
     cityWeatherResults.append(humidity)
 
-    let pressure = document.createElement('h2')
-    pressure.innerHTML = `Pressure:${results.data.main.pressure}`
+    let pressure = document.createElement('h3')
+    pressure.innerHTML = `Pressure: ${results.data.main.pressure}`
+    pressure.classList.add('main-display-item')
     cityWeatherResults.append(pressure)
 
     let saveButton = document.createElement('button')

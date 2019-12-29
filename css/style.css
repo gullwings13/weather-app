@@ -1,12 +1,87 @@
 body {
-	text-align: center;
+	background: #213A40;
 }
 
 main {
 	display: flex;
+	flex-wrap: wrap;
 	flex-direction: column;
 	font-family: Arial, Helvetica, sans-serif;
+	color: #BF3056;
+
 }
+
+#results{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+}
+
+.result-background{
+	background-image: url("http://openweathermap.org/img/w/04d.png");
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0.5;
+	width: 90vw;
+	height: 90vw;
+	position: absolute;
+	z-index: -1;
+	filter: blur(8px);
+	-webkit-filter: blur(8px);
+}
+
+form{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.main-display-item{
+	display: inline-block;
+	margin: 5px;
+	text-transform: capitalize;
+}
+
+.sub-display-item{
+	display: inline-block;
+	font-size: 15px;
+}
+
+#city{
+	width: 45vw;
+	padding: 0;
+	height: 40px;
+	font-size: 25px;
+	background: rgba(45, 45, 45, 0.97);
+	color: #C7D93D;
+	border-radius: 5px;
+	border-color: #C7D93D;
+}
+
+#city:focus {
+	outline: #C7D93D auto 7px;
+}
+
+
+#getTemp, button{
+	width: 45vw;
+	padding: 0px;
+	height: 40px;
+	font-size: 25px;
+	background: #2d454b;
+	color: #C7D93D;
+	border-radius: 5px;
+	border-color: #C7D93D;
+}
+
+button{
+	width: auto;
+	height: auto;
+}
+
+/*used https://cssgradient.io/ to create the following gradient for the temp colors*/
 
 .textBackground {
 	background: linear-gradient(90deg, rgba(111, 255, 252, 1) 0%, rgba(14, 0, 255, 1) 40%, rgba(0, 255, 10, 1) 55%, rgba(255, 199, 0, 1) 70%, rgba(255, 0, 0, 1) 90%);
