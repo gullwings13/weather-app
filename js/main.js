@@ -64,94 +64,83 @@ const collectResults = async query =>
     }
 }
 
-
-
-
-
 const renderResults = results =>
 {
-
     // City Name
-    let cityNameMain = document.createElement('h1')
-    let cityNameSub = document.createElement('span')
-    cityNameMain.innerHTML = results.data.name+" "
-    cityNameSub.innerHTML = " "+results.data.sys.country
-    cityNameMain.classList.add('main-display-item')
-    cityNameSub.classList.add('sub-display-item')
-    cityNameMain.append(cityNameSub)
+    let cityNameMain = makeTableRow("",results.data.name,results.data.sys.country)
+    cityNameMain.classList.add('Rtable-cell--head')
     cityWeatherResults.append(cityNameMain)
 
-    // Current temperature
-    let currentTemp = document.createElement('h1')
-    currentTemp.innerHTML = `Temp now:${ Math.round(results.data.main.temp)}`
-    currentTemp.classList.add('main-display-item')
 
+    // Weather description
+    let weatherDescription = makeTableRow("",results.data.weather[0].description,"")
+    weatherDescription.classList.add('Rtable-cell--weather')
+    cityWeatherResults.append(weatherDescription)
+
+
+    // Current temperature
+    let currentTemp = makeTableRow("Current Temp:",Math.round(results.data.main.temp),"°F")
     cityWeatherResults.append(currentTemp)
 
 
-
     // Min temp
-    let minTemp = document.createElement('h1')
     let minTempColorSpan = document.createElement('span')
-    minTemp.innerHTML = `Temp min:`
     minTempColorSpan.innerHTML = Math.round(results.data.main.temp_min)
-    minTemp.classList.add('main-display-item')
     addTextColorClass(minTempColorSpan)
-    minTemp.append(minTempColorSpan)
+
+    let minTemp = makeTableRow("Min Temp:",minTempColorSpan.outerHTML,"°F")
     cityWeatherResults.append(minTemp)
 
+
     // Max temp
-    let maxTemp = document.createElement('h1')
     let maxTempColorSpan = document.createElement('span')
-    maxTemp.innerHTML = `Temp max:`
     maxTempColorSpan.innerHTML =  Math.round(results.data.main.temp_max)
-    maxTemp.classList.add('main-display-item')
     addTextColorClass(maxTempColorSpan)
 
-    maxTemp.append(maxTempColorSpan)
+    let maxTemp = makeTableRow("Max temp:", maxTempColorSpan.outerHTML, "°F")
     cityWeatherResults.append(maxTemp)
 
-    // Weather description
-    let weatherDescription = document.createElement('h1')
-    weatherDescription.innerHTML = `${results.data.weather[0].description}`
-    weatherDescription.classList.add('main-display-item')
-    cityWeatherResults.append(weatherDescription)
 
+    // background image
     let imageBackground = document.createElement('div')
     imageBackground.classList.add('result-background')
     imageBackground.style.backgroundImage = `url(http://openweathermap.org/img/w/${results.data.weather[0].icon}.png)`
-    //weatherImage.src = `http://openweathermap.org/img/w/${results.data.weather[0].icon}.png`
     cityWeatherResults.append(imageBackground)
 
-    let sunrise = document.createElement('h3')
+
     // several string date formatting from stack overflow
     // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
     // https://stackoverflow.com/questions/847185/convert-a-unix-timestamp-to-time-in-javascript
-    let time = new Date(results.data.sys.sunrise*1000)
-    let options = { timeZone: "America/New_York", timeZoneName: 'short' } // used for sunrise and sunset
-    let timeString = time.toLocaleTimeString('en-US', options)
-    sunrise.innerHTML = `Sunrise: ${timeString}`
-    sunrise.classList.add('main-display-item')
+    let timeFormatOptions = { timeZone: "America/New_York", timeZoneName: 'short' } // used for sunrise and sunset
+
+
+    // Sunrise
+    let sunRiseTime = new Date(results.data.sys.sunrise*1000)
+    let sunriseTimeString = sunRiseTime.toLocaleTimeString('en-US', timeFormatOptions)
+
+    let sunrisePartA = sunriseTimeString.split(" ")[0]
+    let sunrisePartB = sunriseTimeString.split(" ")[1]+" "+sunriseTimeString.split(" ")[2]
+
+    let sunrise = makeTableRow("Sunrise:",sunrisePartA,sunrisePartB)
     cityWeatherResults.append(sunrise)
 
-    let sunset = document.createElement('h3')
-    // string date formatting from stack overflow
-    // https://stackoverflow.com/questions/8888491/how-do-you-display-javascript-datetime-in-12-hour-am-pm-format
 
+    // Sunset
     let sunsetTime = new Date(results.data.sys.sunset*1000)
-    let sunsetTimeString = sunsetTime.toLocaleTimeString('en-US', options)
-    sunset.innerHTML = `Sunset: ${sunsetTimeString}`
-    sunset.classList.add('main-display-item')
+    let sunsetTimeString = sunsetTime.toLocaleTimeString('en-US', timeFormatOptions)
+
+    let sunsetPartA = sunsetTimeString.split(" ")[0]
+    let sunsetPartB = sunsetTimeString.split(" ")[1]+" "+sunsetTimeString.split(" ")[2]
+
+    let sunset = makeTableRow("Sunset:", sunsetPartA, sunsetPartB)
     cityWeatherResults.append(sunset)
 
-    let humidity = document.createElement('h3')
-    humidity.innerHTML = `Humidity: ${results.data.main.humidity}`
-    humidity.classList.add('main-display-item')
+    // Hummidity
+    let humidity = makeTableRow("Humidity:", results.data.main.humidity, "%")
     cityWeatherResults.append(humidity)
 
-    let pressure = document.createElement('h3')
-    pressure.innerHTML = `Pressure: ${results.data.main.pressure}`
-    pressure.classList.add('main-display-item')
+    // Pressure
+    let pressure = makeTableRow("Pressure:",results.data.main.pressure, "hPa")
     cityWeatherResults.append(pressure)
 
     let saveButton = document.createElement('button')
@@ -168,8 +157,34 @@ const renderResults = results =>
 
 function makeTableRow(label, data, unit)
 {
+    // <div class="Rtable-cell Rtable-cell--head"><h1>New York</h1></div>
+    // <div class="Rtable-cell Rtable-cell--weather">Overcast Clouds</div>
+    // <div class="Rtable-cell"><div class="label">Current Temp:</div><div class="data">55</div><div class="unit">°F</div></div>
+
+    let rowElement  = document.createElement('div')
+    let labelElement = document.createElement('div')
+    let dataElement = document.createElement('div')
+    let unitElement = document.createElement('div')
+
+    rowElement.classList.add('Rtable-cell')
+    labelElement.classList.add('label')
+    dataElement.classList.add('data')
+    unitElement.classList.add('unit')
+
+    labelElement.innerHTML = label
+    dataElement.innerHTML = data
+    unitElement.innerHTML = unit
 
 
+    if(labelElement.innerHTML != "")
+    {
+        rowElement.append(labelElement)
+    }
+    rowElement.append(dataElement)
+    if(unitElement.innerHTML != "")
+    {
+        rowElement.append(unitElement)
+    }
 
     return rowElement
 }

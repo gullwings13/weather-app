@@ -1,21 +1,24 @@
 :root {
-	/*--color-1: rgba(191, 47, 86, 1);*/
-	/*--color-2: rgba(33, 58, 63, 1);*/
-	/*--color-3: rgba(198, 216, 60, 1);*/
-	/*--color-4: rgba(216, 135, 88, 1);*/
-	/*--color-5: rgba(191, 173, 162, 1);*/
+	/*     color-scheme-1*/
+	--color-1: rgba(33, 58, 63, 1);
+	--color-2: rgba(191, 47, 86, 1);
+	--color-3: rgba(198, 216, 60, 1);
+	--color-4: rgba(216, 135, 88, 1);
+	--color-5: rgba(191, 173, 162, 1);
 
+	/*     color-scheme-2   */
 	/*--color-1: rgba(111, 191, 183, 1);*/
 	/*--color-2: rgba(242, 198, 65, 1);*/
 	/*--color-3: rgba(242, 149, 68, 1);*/
 	/*--color-4: rgba(242, 102, 102, 1);*/
 	/*--color-5: rgba(242, 242, 242, 1);*/
 
-	--color-1: rgba(242, 242, 242, 1);
-	--color-2: rgba(84, 109, 114, 1);
-	--color-3: rgba(137, 160, 165, 1);
-	--color-4: rgba(164, 188, 191, 1);
-	--color-5: rgba(2, 114, 114, 1);
+	/*     color-scheme-3   */
+	/*--color-1: rgba(84, 109, 114, 1);*/
+	/*--color-2: rgba(137, 160, 165, 1);*/
+	/*--color-3: rgba(242, 242, 242, 1);*/
+	/*--color-4: rgba(2, 114, 114, 1);*/
+	/*--color-5: rgba(164, 188, 191, 1);*/
 
 	--color-6: rgba(0,0,0,1);
 	--color-7: rgba(255,255,255,1);
@@ -34,26 +37,45 @@
 
 .Rtable-cell {
 	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
 	flex-grow: 1;
 	width: 100%;
-	padding: 0.8em 1.2em;
+	padding: 10px 10px;
 	overflow: hidden;
 	list-style: none;
-	border: solid 3px white;
-	background: rgba(112, 128, 144, 0.2);
+	border: solid 1px var(--color-1);
+	background: var(--color-2);
 }
 
 .Rtable-cell--head {
-	background-color: slategrey;
-	border-color: #5a6673;
-	color: white;
+	background-color: transparent;
+	border-color: transparent;
+	color: var(--color-2);
+	font-size: 40px;
+	padding: 20px 10px;
 }
 
-.Rtable-cell--foot {
-	background-color: #b8c0c8;
-	border-color: #a9b3bc;
+.Rtable-cell--weather {
+	background-color: transparent;
+	border-color: transparent;
+	font-size: 30px;
+	text-transform: capitalize;
 }
 
+.label{
+	width: 35%;
+	color: var(--color-4);
+}
+
+.data{
+	font-weight: bold;
+}
+
+.unit{
+	margin: 0 0 0 3px;
+	color: var(--color-5);
+}
 
 body {
 	background: var(--color-1);
@@ -77,15 +99,15 @@ main {
 .result-background{
 	background-image: url("http://openweathermap.org/img/w/04d.png");
 	background-size: contain;
-	background-position: center;
+	align-self: center;
 	background-repeat: no-repeat;
 	opacity: 0.5;
-	width: 90vw;
-	height: 90vw;
+	width: 40vw;
+	height: 40vw;
 	position: absolute;
 	z-index: -1;
-	filter: blur(8px);
-	-webkit-filter: blur(8px);
+	filter: blur(2px);
+	-webkit-filter: blur(2px);
 }
 
 form{
@@ -98,7 +120,7 @@ form{
 .main-display-item{
 	display: inline-block;
 	margin: 5px;
-	text-transform: capitalize;
+
 }
 
 .sub-display-item{
@@ -118,28 +140,24 @@ form{
 /*}*/
 
 #city:focus {
-	outline: var(--color-5) auto 7px;
+	outline: inset var(--color-2) 3px;
+	outline-offset: -3px;
 }
 
 
 #getTemp, #city, button{
-
-
 	display: inline-block;
 	padding: 10px 15px;
 	font-size: 20px;
 	border-radius: 0;
 	-webkit-appearance: none;
 	border: 1px solid transparent;
-
-	/*width: 45vw;*/
-	/*padding: 0px;*/
-	/*height: 40px;*/
-	/*font-size: 25px;*/
 	background: var(--color-3);
-	color: var(--color-5);
-	/*border-radius: 5px;*/
-	/*border-color: var(--color-4);*/
+	color: var(--color-6);
+}
+
+#city{
+	background: var(--color-7);
 }
 
 button{
