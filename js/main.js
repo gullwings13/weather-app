@@ -66,6 +66,12 @@ const collectResults = async query =>
 
 const renderResults = results =>
 {
+    // background image
+    let imageBackground = document.createElement('div')
+    imageBackground.classList.add('result-background')
+    imageBackground.style.backgroundImage = `url(http://openweathermap.org/img/w/${results.data.weather[0].icon}.png)`
+    cityWeatherResults.append(imageBackground)
+
     // City Name
     let cityNameMain = makeTableRow("",results.data.name,results.data.sys.country)
     cityNameMain.classList.add('Rtable-cell--head')
@@ -101,11 +107,7 @@ const renderResults = results =>
     cityWeatherResults.append(maxTemp)
 
 
-    // background image
-    let imageBackground = document.createElement('div')
-    imageBackground.classList.add('result-background')
-    imageBackground.style.backgroundImage = `url(http://openweathermap.org/img/w/${results.data.weather[0].icon}.png)`
-    cityWeatherResults.append(imageBackground)
+
 
 
     // several string date formatting from stack overflow
